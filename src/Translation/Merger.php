@@ -248,7 +248,7 @@ class Merger
         $result = [];
 
         foreach ($translations as $group => $groupTranslations) {
-            $flattened = $this->flattenTranslations($groupTranslations, $group);
+            $flattened = $this->flattenTranslationsWithGroup($groupTranslations, $group);
 
             $result = array_merge($result, $flattened);
         }
@@ -263,7 +263,7 @@ class Merger
      * @param string $prefix
      * @return array<string, string>
      */
-    protected function flattenTranslationsWithGroup(array $translations, string $prefix = ""): array
+    protected function flattenTranslationsWithGroup(array $translations, string $prefix): array
     {
         $result = [];
 
@@ -271,7 +271,7 @@ class Merger
             $newKey = $prefix === "" ? $key : "{$prefix}.{$key}";
 
             if (is_array($value)) {
-                $result = array_merge($result, $this->flattenTranslations($value, $newKey));
+                $result = array_merge($result, $this->flattenTranslationsWithGroup($value, $newKey));
             } else {
                 $result[$newKey] = $value;
             }
