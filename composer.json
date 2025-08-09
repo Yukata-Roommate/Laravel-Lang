@@ -1,0 +1,38 @@
+{
+    "name": "yukata-roommate/laravel-lang",
+    "description": "Easy to use language in Laravel",
+    "version": "1.0.0",
+    "keywords": [
+        "yukata-roommate",
+        "php",
+        "laravel",
+        "package",
+        "lang",
+        "laravel-lang"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yukata Roommate"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "YukataRm\\Laravel\\Lang\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "YukataRm\\Laravel\\Lang\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": ">=8.3.0",
+        "laravel/framework": "^11.0 || ^12.0",
+        "yukata-roommate/enum": "^1.0.0",
+        "yukata-roommate/laravel-command": "^1.0.0",
+        "yukata-roommate/laravel-middleware": "^1.0.0"
+    }
+}
